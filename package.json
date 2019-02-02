@@ -1,0 +1,28 @@
+{
+  "name": "D-TRANS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoDrag-ON/D-TRANS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoDrag-ON/D-TRANS/issues"
+  },
+  "homepage": "https://github.com/CoDrag-ON/D-TRANS#readme",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "elliptic": "^6.4.1",
+    "express": "^4.16.4",
+    "uuid": "^3.3.2",
+    "ws": "^6.1.3"
+  }
+}
