@@ -30,9 +30,10 @@ app.get('/transaction', (req, res) => {
 app.post('/transact', (req, res) => {
   const {
     recipient,
-    amount
+    amount,
+    data
   } = req.body;
-  const transaction = wallet.createTransaction(recipient, amount, chain, tp)
+  const transaction = wallet.createTransaction(recipient, amount, data, chain, tp)
   p2pServer.broadcastTransaction(transaction)
   res.redirect('/transaction')
 });
