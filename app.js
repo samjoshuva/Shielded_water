@@ -27,6 +27,8 @@ app.get('/transaction', (req, res) => {
   res.json(tp.transactions)
 });
 
+
+
 app.post('/transact', (req, res) => {
   const {
     recipient,
@@ -51,15 +53,24 @@ app.post('/mine', (req, res) => {
   p2pServer.syncChain();
 });
 
+
+
 app.get('/public-key', (req, res) => {
   res.json({
-    publicKey: wallet.publicKey
+    publicKey: getPublickey()
   })
 })
 
 app.get('/balance', (req, res) => {
   res.json({
     Balance: wallet.calculateWalletBalance(chain)
+  })
+})
+
+app.get('/data', (req, res)=>{
+  
+  res.json({
+    data :wallet.getData(chain)
   })
 })
 
@@ -70,3 +81,7 @@ app.listen(HTTP_PORT, () => {
 });
 
 p2pServer.listen();
+
+function getPublickey() {
+  return wallet.publicKey;
+}

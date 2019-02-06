@@ -6,6 +6,7 @@ const Transaction = require('./transactions');
 class Wallet {
   constructor() {
     this.balance = INITIAL_BALANCE;
+    this.data = [];
     this.keyPair = Utility.genrateKeyPair();
     this.publicKey = this.keyPair.getPublic().encode('hex');
   }
@@ -39,6 +40,40 @@ class Wallet {
 
     return transaction;
   }
+
+  getData(chain){
+    let data = []
+
+    let transactions = [];
+    
+
+    chain.chain.forEach(block =>
+      block.data.forEach(transaction => {
+        transactions.push(transaction);
+      })
+    );
+    transactions.forEach(transaction => {
+
+      transaction.outputs.find(output => {
+        if (output.address === this.publicKey) {
+
+            if(output.data){
+              data.push(output.data);
+              console.log(`Data : ${data}`);
+      
+            }
+          }
+      });
+
+    
+  });
+
+
+  return data
+
+  }
+
+ 
 
   calculateWalletBalance(blockchain) {
     let balance = this.balance;
