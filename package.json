@@ -20,7 +20,7 @@
   "homepage": "https://github.com/CoDrag-ON/D-TRANS#readme",
   "dependencies": {
     "crypto-js": "^3.1.9-1",
-    "elliptic": "^6.4.1",
+    "elliptic": "^6.5.4",
     "express": "^4.16.4",
     "uuid": "^3.3.2",
     "ws": "^6.1.3"
